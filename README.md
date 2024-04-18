@@ -1,7 +1,7 @@
 # kubernetes-manifests
 | NAME    |                PROMPT                  |           DESCRIPTION        | EXAMPLE  |
 |---------|----------------------------------------|------------------------------|----------|
-|APP Deployment         |kubectl apply -f app.yaml               |This is the main YAML manifest for deploying application in Kubernetes. It typically includes specifications for pods, deployments, services, or other resources necessary for your application to run.               |app.yaml  |
+|APP Deployment         |kubectl apply -f app.yaml               |This is the main YAML manifest for deploying application in Kubernetes. It typically includes specifications for pods, deployments, services, or other resources necessary for your application to run.               |[app.yaml](app.yaml)  |
 |Liveness probe         |kubectl apply -f app-livenessProbe.yaml |This YAML file contains the configuration for the liveness probe of your application. A liveness probe is used to determine if the application is running properly. If the probe fails, Kubernetes will restart the container.|app-livenessProbe.yaml |
 |Readiness probe         |kubectl apply -f app-readinessProbe.yaml|This YAML file contains the configuration for the readiness probe of application. A readiness probe is used to determine if the application is ready to serve traffic. If the probe fails, the container will be removed from service until it passes.              |app-readinessProbe.yaml|
 |Volume mounts         |kubectl apply -f app-volumeMounts.yaml  |This YAML file defines any volume mounts that your application needs. Volume mounts are used to make external storage or configuration files available to your application containers.              |app-volumeMounts.yaml  |
