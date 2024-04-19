@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-probe-demo
+spec:
+  containers:
+  - name: demo
+    image: europe-west3-docker.pkg.dev/prometheus-devops-course/gcr-docker-demo/demo:v1.0.0
+    ports:
+    - containerPort: 8080
+    livenessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 15
+      periodSeconds: 10

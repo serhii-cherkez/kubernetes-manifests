@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer-demo
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  containers:
+  - name: nginx-container
+    image: nginx
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  - name: ubuntu-container
+    image: ubuntu
+    command: ["bash", "-c", "echo 'Hello from Ubuntu' > /shared-data/index.html && sleep 3600"]
+    volumeMounts:
+    - name: shared-data
+      mountPath: /shared-data

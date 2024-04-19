@@ -5,11 +5,11 @@ metadata:
 spec:
   containers:
   - name: app-container
-    image: busybox
-    command: ["/bin/sh", "-c", "echo 'Hello, World!' > /usr/share/hello/index.html && sleep 3600"]
+    image: nginx
     volumeMounts:
-    - name: data-volume
-      mountPath: /usr/share/hello
+    - name: html-volume
+      mountPath: /usr/share/nginx/html
   volumes:
-  - name: data-volume
-    emptyDir: {}
+  - name: html-volume
+    hostPath:
+      path: /data/html
