@@ -9,8 +9,10 @@ spec:
     ports:
     - containerPort: 8080
     livenessProbe:
-      httpGet:
-        path: /index.html
-        port: 80
+      exec:
+        command:
+        - curl
+        - -f
+        - http://localhost/
       initialDelaySeconds: 15
       periodSeconds: 10
